@@ -9,7 +9,7 @@ You can use this demo to illustrate loading `JSON` data of differing shapes and 
 ### Get Started!
 1. Create an Astra Serverless database
 2. Create an [Application Token](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) for your database to use in authentication.
-3. Put your database UUID, cloud region, application token, and keyspace name into the [java variables](./src/main/java/org/example/App.java)
+3. Put your database UUID, cloud region, application token, and keyspace name into the [java variables](src/main/java/com/datastax/example/App.java)
 4. Run the example program
 5. Import the [HTTP requests](postman) into [Postman](https://www.postman.com/) and test!
 
