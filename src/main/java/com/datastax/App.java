@@ -17,11 +17,11 @@ public class App {
     public static void main(String[] args) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         AstraDB db = new AstraDbBuilder()
-                            .setDatabaseId("e6573c16-80ba-433f-ba9d-0a6a0bc40089")
-                            .setCloudRegion("us-east1")
-                            .setKeyspace("api_test")
-                            .setCollection("documents")
-                            .setApplicationToken("AstraCS:dZNBKegUnLlhXKGEujXcOhzW:4f6d488ae939d723fb217c4a336c77e0ab52d7b844e2a5f98af4b70d1bf64369")
+                            .setDatabaseId("")
+                            .setCloudRegion("")
+                            .setKeyspace("")
+                            .setCollection("")
+                            .setApplicationToken("")
                             .createAstraDB();
 
         long StartTime = System.currentTimeMillis();
