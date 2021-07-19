@@ -30,21 +30,21 @@ public class App {
 
         //Read JSON data from file and create an array
         //Load the document into Astra
-//        JSONArray json = (JSONArray) jsonParser.parse(new FileReader("./src/main/resources/MOCK_DATA.json"));
-//        List<Response> insertResult = query.insert(json);
+        JSONArray json = (JSONArray) jsonParser.parse(new FileReader("./src/main/resources/MOCK_DATA.json"));
+        List<Response> insertResult = query.insert(json);
 
         //Load car data too
-//        JSONArray carJson = (JSONArray) jsonParser.parse(new FileReader("./src/main/resources/MOCK_DATA_CAR.json"));
-//        List<Response> insertCarResult = query.insert(carJson);
+        JSONArray carJson = (JSONArray) jsonParser.parse(new FileReader("./src/main/resources/MOCK_DATA_CAR.json"));
+        List<Response> insertCarResult = query.insert(carJson);
 
         long EndTime = System.currentTimeMillis();
         long TotalTime = (EndTime - StartTime)/1000;
-//        System.out.println("Total time to load 200 JSON documents was "+TotalTime+" seconds.");
+        System.out.println("Total time to load 200 JSON documents was "+TotalTime+" seconds.");
 
-//        JSONArray result = query.find(eq("favorite.color","Blue")).all();
-//        System.out.println(result.toString());
+        JSONArray result = query.find(eq("favorite.color","Blue")).all();
+        System.out.println(result.toString());
 
-        JSONArray carYearGt = query.find(eq("car.year",1992)).all();
+        JSONArray carYearGt = query.find(gte("car.year",2005)).all();
         System.out.println(carYearGt.toString());
     }
 }

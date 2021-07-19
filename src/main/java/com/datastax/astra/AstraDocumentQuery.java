@@ -19,6 +19,7 @@ public class AstraDocumentQuery {
     private MediaType mediaType;
     private JSONParser jsonParser;
     private String QUERYFILTER;
+    private int PAGESIZE = 10;
 
     private HttpUrl.Builder getHttpUrlBuilder(){
         assert db != null;
@@ -119,6 +120,7 @@ public class AstraDocumentQuery {
         this.QUERYFILTER = filter;
         return this;
     }
+//    private handleError()
 
     public JSONArray first() throws ParseException {
         return findResponse(getHttpUrlBuilder()
@@ -128,27 +130,45 @@ public class AstraDocumentQuery {
     public JSONArray all() throws ParseException {
         return findResponse(getHttpUrlBuilder()
                             .addQueryParameter("where",this.QUERYFILTER)
-                            .addQueryParameter("page-size",String.valueOf(1)));
+                            .addQueryParameter("page-size",String.valueOf(PAGESIZE)));
     }
 
     public static class Filters{
-        public static String gt(String key, Object value){
+        public static String gt(String key, String value){
             return "{\"" + key + "\":{\"$gt\":\"" + value + "\"}}";
         }
-        public static String gte(String key, Object value){
+        public static String gt(String key, int value){
+            return "{\"" + key + "\":{\"$gt\":" + value + "}}";
+        }
+        public static String gte(String key, String value){
             return "{\"" + key + "\":{\"$gte\":\"" + value + "\"}}";
         }
-        public static String lt(String key, Object value){
+        public static String gte(String key, int value){
+            return "{\"" + key + "\":{\"$gte\":" + value + "}}";
+        }
+        public static String lt(String key, String value){
             return "{\"" + key + "\":{\"$lt\":\"" + value + "\"}}";
         }
-        public static String lte(String key, Object value){
+        public static String lt(String key, int value){
+            return "{\"" + key + "\":{\"$lt\":" + value + "}}";
+        }
+        public static String lte(String key, String value){
             return "{\"" + key + "\":{\"$lte\":\"" + value + "\"}}";
         }
-        public static String eq(String key, Object value){
+        public static String lte(String key, int value){
+            return "{\"" + key + "\":{\"$lte\":\"" + value + "\"}}";
+        }
+        public static String eq(String key, String value){
             return "{\"" + key + "\":{\"$eq\":\"" + value + "\"}}";
         }
-        public static String neq(String key, Object value){
+        public static String eq(String key, int value){
+            return "{\"" + key + "\":{\"$eq\":" + value + "}}";
+        }
+        public static String neq(String key, String value){
             return "{\"" + key + "\":{\"$neq\":\"" + value + "\"}}";
+        }
+        public static String neq(String key, int value){
+            return "{\"" + key + "\":{\"$neq\":" + value + "}}";
         }
     }
 

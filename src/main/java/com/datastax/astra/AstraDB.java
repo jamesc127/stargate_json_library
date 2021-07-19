@@ -1,15 +1,5 @@
 package com.datastax.astra;
 
-import okhttp3.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-
 public class AstraDB {
     private String DatabaseId;
     private String CloudRegion;
@@ -60,22 +50,9 @@ public class AstraDB {
         this.ApplicationToken = applicationToken;
     }
 
-
-
-
-
-
-
-
-
-
     private String fields(String field){
         return "fields="+field;
     }
 
-
-
-
 }
-
 
